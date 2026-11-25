@@ -1,5 +1,5 @@
 {
-  "name": "@flam/tokens",
+  "name": "@flam-ai/tokens",
   "version": "0.1.0",
   "description": "Flam design tokens as CSS variables for shadcn/ui and Tailwind v4 projects.",
   "license": "UNLICENSED",

@@ -1,0 +1,11 @@
+# Raises a weekly pull request when Flam design packages publish a new version.
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      flam-design:
+        patterns:
+          - "@flam-ai/*"

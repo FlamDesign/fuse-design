@@ -425,6 +425,19 @@
       ]
     },
     {
+      "name": "dependabot",
+      "type": "registry:file",
+      "title": "Dependabot config",
+      "description": "A Dependabot config that raises a weekly pull request when Flam design packages such as @flam-ai/tokens publish a new version.",
+      "files": [
+        {
+          "path": "registry/dependabot/dependabot.yml",
+          "type": "registry:file",
+          "target": "~/.github/dependabot.yml"
+        }
+      ]
+    },
+    {
       "name": "base",
       "type": "registry:style",
       "title": "Flam base",

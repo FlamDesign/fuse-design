@@ -11,7 +11,11 @@ General shadcn/ui practice (which component to use, how to compose forms, cards 
 
 ## Tokens
 
-- Colours come from the Flam theme (`@flam/theme` or the `@flam/tokens` package). Use the semantic tokens only; never write raw colour values or Tailwind palette classes such as `bg-orange-500`.
+- Colours come from the Flam theme. Use the semantic tokens only; never write raw colour values or Tailwind palette classes such as `bg-orange-500`.
+- A project gets the theme by exactly one route, never both:
+  - **Product apps:** the npm package. `@import "@flam-ai/tokens/theme.css"` in the global CSS, with no `:root` or `.dark` token blocks of its own.
+  - **Prototypes and one-off projects:** the registry copy. `npx shadcn add @flam/theme` writes the tokens into the global CSS.
+- Before adding or changing tokens, check which route the project uses: if `@flam-ai/tokens` is in `package.json`, do not run `shadcn add @flam/theme` and do not define token values in the project's CSS.
 - Token names follow shadcn/ui and are a fixed contract. Never rename or remove one. Values can change in the theme.
 - `--brand` and `--brand-foreground` are the only tokens Flam adds. Do not add more in a project; propose them in `fuse-design`.
 
