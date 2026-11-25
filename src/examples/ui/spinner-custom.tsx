@@ -1,0 +1,28 @@
+import * as React from "react"
+import { cn } from "cn"
+import { Loading03Icon } from "@hugeicons/core-free-icons"
+import { HugeiconsIcon } from "@hugeicons/react"
+
+function Spinner({
+  className,
+  ...props
+}: Omit<React.ComponentProps<"svg">, "strokeWidth">) {
+  return (
+    <HugeiconsIcon
+      icon={Loading03Icon}
+      strokeWidth={2}
+      role="status"
+      aria-label="Loading"
+      className={cn("size-4 animate-spin", className)}
+      {...props}
+    />
+  )
+}
+
+export function SpinnerCustom() {
+  return (
+    <div className="flex items-center gap-4">
+      <Spinner />
+    </div>
+  )
+}

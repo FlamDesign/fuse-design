@@ -1,0 +1,77 @@
+import { Badge } from "@/components/ui/badge"
+import { CodeBlock, CodeBlockContent } from "@/components/ui/code-block"
+import {
+  Trace,
+  TraceCollapsible,
+  TraceCollapsibleContent,
+  TraceCollapsibleTrigger,
+  TraceIcon,
+  TraceLine,
+  TraceTitle,
+} from "@/components/ui/trace"
+import {
+  ArrowRight01Icon,
+  File02Icon,
+  Search01Icon,
+} from "@hugeicons/core-free-icons"
+import { HugeiconsIcon } from "@hugeicons/react"
+
+export function TraceSteps() {
+  return (
+    <div className="w-full max-w-sm">
+      <TraceCollapsible defaultOpen>
+        <TraceCollapsibleTrigger>
+          <TraceLine status="running">
+            <TraceTitle>Looking into the slow deploy</TraceTitle>
+          </TraceLine>
+        </TraceCollapsibleTrigger>
+        <TraceCollapsibleContent>
+          <Trace>
+            <TraceCollapsible>
+              <TraceCollapsibleTrigger>
+                <TraceLine>
+                  <TraceIcon>
+                    <HugeiconsIcon icon={Search01Icon} strokeWidth={2} />
+                  </TraceIcon>
+                  <TraceTitle>Searched for the checkout build log</TraceTitle>
+                </TraceLine>
+              </TraceCollapsibleTrigger>
+              <TraceCollapsibleContent className="flex flex-wrap gap-1.5">
+                <Badge variant="secondary">vercel.com</Badge>
+                <Badge variant="secondary">github.com</Badge>
+              </TraceCollapsibleContent>
+            </TraceCollapsible>
+            <a href="#steps">
+              <TraceLine>
+                <TraceIcon>
+                  <HugeiconsIcon icon={File02Icon} strokeWidth={2} />
+                </TraceIcon>
+                <TraceTitle>Read the last twelve deploys</TraceTitle>
+                <TraceIcon>
+                  <HugeiconsIcon icon={ArrowRight01Icon} strokeWidth={2} />
+                </TraceIcon>
+              </TraceLine>
+            </a>
+            <TraceCollapsible>
+              <TraceCollapsibleTrigger>
+                <TraceLine status="running">
+                  <TraceIcon>
+                    <HugeiconsIcon icon={Search01Icon} strokeWidth={2} />
+                  </TraceIcon>
+                  <TraceTitle>Searching for the cache key</TraceTitle>
+                </TraceLine>
+              </TraceCollapsibleTrigger>
+              <TraceCollapsibleContent>
+                <CodeBlock size="sm">
+                  <CodeBlockContent wrap className="max-h-64">
+                    cache key image optimization
+                  </CodeBlockContent>
+                </CodeBlock>
+              </TraceCollapsibleContent>
+            </TraceCollapsible>
+          </Trace>
+        </TraceCollapsibleContent>
+      </TraceCollapsible>
+    </div>
+  )
+}
