@@ -1,0 +1,111 @@
+import { CodeBlock, CodeBlockContent } from "@/components/ui/code-block"
+import {
+  Trace,
+  TraceCollapsible,
+  TraceCollapsibleContent,
+  TraceCollapsibleTrigger,
+  TraceDescription,
+  TraceIcon,
+  TraceLine,
+  TraceTitle,
+} from "@/components/ui/trace"
+import {
+  AiBrainIcon,
+  ArrowRight01Icon,
+  ComputerTerminal01Icon,
+  File02Icon,
+} from "@hugeicons/core-free-icons"
+import { HugeiconsIcon } from "@hugeicons/react"
+
+export function TraceTurn() {
+  return (
+    <div className="w-full max-w-sm">
+      <TraceCollapsible defaultOpen>
+        <TraceCollapsibleTrigger>
+          <TraceLine status="error">
+            <TraceTitle>Worked for 2m 4s, 1 command failed</TraceTitle>
+          </TraceLine>
+        </TraceCollapsibleTrigger>
+        <TraceCollapsibleContent className="flex flex-col gap-2">
+          <Trace>
+            <TraceCollapsible>
+              <TraceCollapsibleTrigger>
+                <TraceLine>
+                  <TraceIcon>
+                    <HugeiconsIcon icon={AiBrainIcon} strokeWidth={2} />
+                  </TraceIcon>
+                  <TraceTitle>Thought</TraceTitle>
+                  <TraceDescription>12s</TraceDescription>
+                </TraceLine>
+              </TraceCollapsibleTrigger>
+              <TraceCollapsibleContent className="whitespace-pre-wrap">
+                I should check which package managers are installed before I
+                scaffold anything.
+              </TraceCollapsibleContent>
+            </TraceCollapsible>
+            <TraceCollapsible defaultOpen>
+              <TraceCollapsibleTrigger>
+                <TraceLine status="error">
+                  <TraceIcon>
+                    <HugeiconsIcon
+                      icon={ComputerTerminal01Icon}
+                      strokeWidth={2}
+                    />
+                  </TraceIcon>
+                  <TraceTitle>Ran 2 commands, 1 failed</TraceTitle>
+                </TraceLine>
+              </TraceCollapsibleTrigger>
+              <TraceCollapsibleContent>
+                <Trace>
+                  <TraceLine>
+                    <TraceIcon>
+                      <HugeiconsIcon
+                        icon={ComputerTerminal01Icon}
+                        strokeWidth={2}
+                      />
+                    </TraceIcon>
+                    <TraceTitle>Ran node --version</TraceTitle>
+                  </TraceLine>
+                  <TraceCollapsible>
+                    <TraceCollapsibleTrigger>
+                      <TraceLine status="error">
+                        <TraceIcon>
+                          <HugeiconsIcon
+                            icon={ComputerTerminal01Icon}
+                            strokeWidth={2}
+                          />
+                        </TraceIcon>
+                        <TraceTitle>Failed to run pnpm --version</TraceTitle>
+                      </TraceLine>
+                    </TraceCollapsibleTrigger>
+                    <TraceCollapsibleContent>
+                      <CodeBlock size="sm" variant="destructive">
+                        <CodeBlockContent wrap className="max-h-64">
+                          command not found: pnpm
+                        </CodeBlockContent>
+                      </CodeBlock>
+                    </TraceCollapsibleContent>
+                  </TraceCollapsible>
+                </Trace>
+              </TraceCollapsibleContent>
+            </TraceCollapsible>
+          </Trace>
+          <p>Node is installed and pnpm is not. Reading the docs config.</p>
+          <Trace>
+            <a href="#turn">
+              <TraceLine>
+                <TraceIcon>
+                  <HugeiconsIcon icon={File02Icon} strokeWidth={2} />
+                </TraceIcon>
+                <TraceTitle>Read apps/v4/lib/docs.ts</TraceTitle>
+                <TraceIcon>
+                  <HugeiconsIcon icon={ArrowRight01Icon} strokeWidth={2} />
+                </TraceIcon>
+              </TraceLine>
+            </a>
+          </Trace>
+        </TraceCollapsibleContent>
+      </TraceCollapsible>
+    </div>
+  )
+}

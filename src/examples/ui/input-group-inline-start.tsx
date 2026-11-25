@@ -1,0 +1,27 @@
+import { Field, FieldDescription, FieldLabel } from "@/components/ui/field"
+import {
+  InputGroup,
+  InputGroupAddon,
+  InputGroupInput,
+} from "@/components/ui/input-group"
+import { Search01Icon } from "@hugeicons/core-free-icons"
+import { HugeiconsIcon } from "@hugeicons/react"
+
+export function InputGroupInlineStart() {
+  return (
+    <Field className="max-w-sm">
+      <FieldLabel htmlFor="inline-start-input">Input</FieldLabel>
+      <InputGroup>
+        <InputGroupInput id="inline-start-input" placeholder="Search..." />
+        <InputGroupAddon align="inline-start">
+          <HugeiconsIcon
+            icon={Search01Icon}
+            strokeWidth={2}
+            className="text-muted-foreground"
+          />
+        </InputGroupAddon>
+      </InputGroup>
+      <FieldDescription>Icon positioned at the start.</FieldDescription>
+    </Field>
+  )
+}
