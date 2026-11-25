@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "theme-provider",
   "title": "Theme provider",
-  "description": "Light, dark and system theme provider for Vite apps. Press D to toggle.",
+  "description": "A light, dark and system theme provider for Vite apps.",
   "files": [
     {
       "path": "src/components/theme-provider.tsx",

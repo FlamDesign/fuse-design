@@ -2,14 +2,16 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "theme",
   "title": "Flam theme",
-  "description": "Flam colour tokens for light and dark, Rethink Sans, and base styles. Stock shadcn token names with Flam values.",
+  "description": "Flam's colour tokens for light and dark, the brand colour, Rethink Sans and base styles. Uses shadcn/ui token names.",
   "dependencies": [
     "@fontsource-variable/rethink-sans"
   ],
   "cssVars": {
     "theme": {
       "font-sans": "'Rethink Sans Variable', system-ui, sans-serif",
-      "font-heading": "var(--font-sans)"
+      "font-heading": "var(--font-sans)",
+      "color-brand": "var(--brand)",
+      "color-brand-foreground": "var(--brand-foreground)"
     },
     "light": {
       "background": "oklch(0.988 0.004 84)",
@@ -36,6 +38,8 @@
       "chart-4": "oklch(0.553 0.195 38.402)",
       "chart-5": "oklch(0.47 0.157 37.304)",
       "radius": "0.625rem",
+      "brand": "oklch(0.555 0.163 48.998)",
+      "brand-foreground": "oklch(0.987 0.022 95.277)",
       "sidebar": "oklch(0.943 0.008 84)",
       "sidebar-foreground": "oklch(0.216 0.006 56.043)",
       "sidebar-primary": "oklch(0.216 0.006 56.043)",
@@ -69,6 +73,8 @@
       "chart-3": "oklch(0.646 0.222 41.116)",
       "chart-4": "oklch(0.553 0.195 38.402)",
       "chart-5": "oklch(0.47 0.157 37.304)",
+      "brand": "oklch(0.56 0.16 47.5)",
+      "brand-foreground": "oklch(0.987 0.022 95.277)",
       "sidebar": "oklch(0.2 0.006 56)",
       "sidebar-foreground": "oklch(0.97 0.002 84)",
       "sidebar-primary": "oklch(0.94 0.004 84)",
@@ -98,7 +104,7 @@
         "text-wrap": "balance"
       },
       "::selection": {
-        "background": "color-mix(in oklab, var(--chart-2) 32%, transparent)"
+        "background": "color-mix(in oklab, var(--brand) 28%, transparent)"
       }
     }
   },

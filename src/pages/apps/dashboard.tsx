@@ -36,7 +36,7 @@ const series = values.map((value, index) => ({
 }))
 
 const chartConfig = {
-  current: { label: "This period", color: "var(--chart-3)" },
+  current: { label: "This period", color: "var(--brand)" },
   previous: { label: "Previous period", color: "var(--muted-foreground)" },
 } satisfies ChartConfig
 

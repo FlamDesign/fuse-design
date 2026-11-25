@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "sonner",
   "title": "Sonner",
-  "description": "Toasts wired to the Flam theme provider, with no next-themes dependency.",
+  "description": "An opinionated toast component for React. Flam's version reads the theme from the Flam theme provider and does not need next-themes.",
   "dependencies": [
     "sonner",
     "@hugeicons/react",

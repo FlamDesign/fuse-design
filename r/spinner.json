@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "spinner",
   "title": "Spinner",
-  "description": "Spinner typed for Hugeicons.",
+  "description": "An indicator that can be used to show a loading state. Flam's version is typed for Hugeicons.",
   "dependencies": [
     "cn",
     "@hugeicons/react",

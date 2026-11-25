@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "build:hosted": "tsc -b && vite build --mode artifact --outDir dist-artifact",
-    "registry:build": "shadcn build -o r",
+    "registry:build": "node tools/sync-theme.mjs && shadcn build -o r",
     "lint": "eslint .",
     "format": "prettier --write \"**/*.{ts,tsx}\"",
     "typecheck": "tsc --noEmit",

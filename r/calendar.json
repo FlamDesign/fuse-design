@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "calendar",
   "title": "Calendar",
-  "description": "Calendar whose day labels start with the visible day number.",
+  "description": "A calendar component that allows users to select a date or a range of dates. Flam's version starts each day label with the visible day number.",
   "dependencies": [
     "react-day-picker",
     "cn",

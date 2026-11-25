@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "card",
   "title": "Card",
-  "description": "Card with a border ring and no shadow.",
+  "description": "Displays a card with header, content, and footer. Flam's version uses a border ring and no shadow.",
   "dependencies": [
     "cn"
   ],

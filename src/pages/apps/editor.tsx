@@ -82,7 +82,7 @@ const fills: Record<FillKey, { label: string; color: string; on: string }> = {
   paper: { label: "Paper", color: "var(--background)", on: "var(--foreground)" },
   white: { label: "Card", color: "var(--card)", on: "var(--card-foreground)" },
   muted: { label: "Muted", color: "var(--muted)", on: "var(--foreground)" },
-  orange: { label: "Orange", color: "var(--chart-3)", on: "oklch(0.216 0.006 56.043)" },
+  orange: { label: "Brand", color: "var(--brand)", on: "var(--brand-foreground)" },
   blue: { label: "Stone", color: "var(--muted-foreground)", on: "var(--background)" },
   gold: { label: "Amber", color: "var(--chart-1)", on: "oklch(0.216 0.006 56.043)" },
 }
@@ -143,7 +143,7 @@ function LayerView({ layer }: { layer: Layer }) {
         style={{
           ...common,
           background:
-            "linear-gradient(140deg, color-mix(in oklab, var(--chart-1) 45%, var(--card)), color-mix(in oklab, var(--chart-3) 30%, var(--card)))",
+            "linear-gradient(140deg, color-mix(in oklab, var(--chart-1) 45%, var(--card)), color-mix(in oklab, var(--brand) 30%, var(--card)))",
         }}
       >
         <Icon icon={Image01Icon} className="size-8" />
@@ -656,7 +656,7 @@ export function EditorPage() {
                         className={cn(
                           "absolute touch-none outline-none select-none focus-visible:ring-2 focus-visible:ring-ring",
                           tool === "select" ? "cursor-move" : "pointer-events-none",
-                          isSelected ? "ring-2 ring-primary" : "hover:ring-1 hover:ring-primary/50"
+                          isSelected ? "ring-2 ring-brand" : "hover:ring-1 hover:ring-brand/60"
                         )}
                         style={{ left: layer.x, top: layer.y, width: layer.w, height: layer.h }}
                       >
@@ -667,7 +667,7 @@ export function EditorPage() {
                             onPointerDown={(event) => onLayerPointerDown(event, layer, "resize")}
                             onPointerMove={onLayerPointerMove}
                             onPointerUp={() => (drag.current = null)}
-                            className="absolute -right-1.5 -bottom-1.5 size-3 cursor-nwse-resize rounded-sm border-2 border-primary bg-card"
+                            className="absolute -right-1.5 -bottom-1.5 size-3 cursor-nwse-resize rounded-sm border-2 border-brand bg-card"
                           />
                         ) : null}
                       </div>

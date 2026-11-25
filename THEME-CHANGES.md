@@ -68,5 +68,5 @@ Token names are unchanged; only values in `src/index.css` changed. `--radius` is
 | dark | `--sidebar-ring` | `oklch(0.556 0 0)` | `oklch(0.553 0.013 58.071)` |
 | both | `--font-sans` | `'Inter Variable', sans-serif` | `'Rethink Sans Variable', system-ui, sans-serif` |
 
-No custom tokens. Every colour maps to a stock shadcn token; the amber comes from `--chart-1` to `--chart-5`. Selection in the editor and flow builder uses `--primary`.
+Two tokens are added to the stock set, following shadcn's "adding new colors" pattern: `--brand` (light `oklch(0.555 0.163 48.998)`, dark `oklch(0.56 0.16 47.5)`) and `--brand-foreground` (`oklch(0.987 0.022 95.277)`). They carry Flam's amber on the logo mark, canvas and flow selection, the lead chart series and text selection. Token values now live in `packages/tokens/theme.css`.
 Colour values are copied from FlamDesign/Flicks-prototype `src/index.css` at commit 024182c.
