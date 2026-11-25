@@ -178,4 +178,9 @@ updates:
 
 If the project already has a `dependabot.yml`, add only the `groups` block to its npm entry; the CLI will not overwrite an existing file.
 
-To release new token values: edit `theme.css`, bump the version in `packages/tokens/package.json`, run `npm run registry:build`, merge, then `npm publish` from `packages/tokens`.
+To release new token values:
+
+1. Edit `packages/tokens/theme.css`.
+2. Bump the version in `packages/tokens/package.json`.
+3. Run `npm run registry:build` and commit the result.
+4. Merge to `main`. The `Publish tokens` workflow publishes the new version to npm by itself, using npm trusted publishing. No npm token or security key is involved.
