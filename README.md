@@ -93,7 +93,7 @@ npx shadcn@latest add @flam/base --overwrite
 | Item | What it installs |
 |---|---|
 | `@flam/base` | Theme, all edited components, rules. Start here. |
-| `@flam/theme` | Colour tokens for light and dark, Rethink Sans, base styles |
+| `@flam/theme` | Colour tokens for light and dark, the brand colour, Rethink Sans, base styles |
 | `@flam/rules` | `FLAM-DESIGN.md` and a Cursor rule |
 | `@flam/tabs`, `card`, `button`, `badge`, `trace`, `slider`, `combobox`, `calendar`, `command`, `sonner`, `spinner`, `sidebar`, `carousel` | Flam's version of that component |
 | `@flam/theme-provider`, `use-mobile`, `highlighter` | Supporting files |
@@ -121,4 +121,30 @@ To keep product components separate but reusable, give each product a folder and
 
 ### Agents
 
-The shadcn MCP server reads the `registries` block in `components.json`, so an agent can search and install `@flam` items directly: `npx shadcn@latest mcp init`.
+Three pieces make a coding agent use Flam's components correctly. Set them up once per project.
+
+1. **shadcn skill.** General shadcn/ui practice: which component fits which need, how to compose forms, cards and dialogs, styling conventions.
+
+```bash
+npx skills add shadcn/ui
+```
+
+2. **shadcn MCP server.** Lets the agent search and install from the stock registry and from `@flam`. It reads the `registries` block in `components.json`.
+
+```bash
+npx shadcn@latest mcp init --client claude   # or cursor, vscode
+```
+
+For Claude Code this writes `.mcp.json`; commit it so everyone on the repo gets the server. This repo already has one.
+
+3. **Flam rules.** `npx shadcn@latest add @flam/rules` installs `FLAM-DESIGN.md` and a Cursor rule. They cover only what is specific to Flam: tokens, the brand colour and preferring `@flam` components. For Claude Code or Codex, add the line `@FLAM-DESIGN.md` to the project's `CLAUDE.md` or `AGENTS.md`.
+
+## Tokens
+
+`packages/tokens/theme.css` is the single source of truth for colour tokens. Edit values there and nowhere else.
+
+- The kit imports it from `src/index.css`.
+- `npm run registry:build` copies it into the `@flam/theme` registry item.
+- It is also an npm package (`packages/tokens`). A project that imports `@flam/tokens/theme.css` picks up new values with a version bump; a project that installed `@flam/theme` through the shadcn CLI has to re-run `npx shadcn@latest add @flam/theme`.
+
+To release new token values: edit `theme.css`, bump the version in `packages/tokens/package.json`, run `npm run registry:build`, merge, then `npm publish` from `packages/tokens`.

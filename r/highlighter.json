@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "highlighter",
   "title": "Code highlighter",
-  "description": "Shiki highlighter with comment and keyword colours that meet 4.5:1 on Flam code surfaces.",
+  "description": "A Shiki highlighter for code blocks, with syntax colours that meet 4.5:1 on Flam surfaces.",
   "dependencies": [
     "shiki"
   ],

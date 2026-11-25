@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "badge",
   "title": "Badge",
-  "description": "Badge with an accessible destructive variant in dark mode.",
+  "description": "Displays a badge or a component that looks like a badge. Flam's version keeps the destructive variant readable in dark mode.",
   "dependencies": [
     "radix-ui",
     "class-variance-authority",

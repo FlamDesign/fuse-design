@@ -132,7 +132,7 @@ export function AppLayout({ fallback }: { fallback: React.ReactNode }) {
             <SidebarMenuItem>
               <SidebarMenuButton size="lg" asChild>
                 <Link to="/">
-                  <div className="flex aspect-square size-8 items-center justify-center rounded-xl bg-primary text-primary-foreground">
+                  <div className="flex aspect-square size-8 items-center justify-center rounded-xl bg-brand text-brand-foreground">
                     <Icon icon={GridViewIcon} className="size-4" />
                   </div>
                   <div className="grid flex-1 text-left leading-tight">

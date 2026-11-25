@@ -1,0 +1,25 @@
+{
+  "name": "@flam/tokens",
+  "version": "0.1.0",
+  "description": "Flam design tokens as CSS variables for shadcn/ui and Tailwind v4 projects.",
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FlamDesign/fuse-design.git",
+    "directory": "packages/tokens"
+  },
+  "files": [
+    "theme.css",
+    "README.md"
+  ],
+  "exports": {
+    "./theme.css": "./theme.css"
+  },
+  "style": "./theme.css",
+  "sideEffects": [
+    "*.css"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}

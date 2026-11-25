@@ -418,7 +418,7 @@ export function FlowPage() {
                     key={edge.id}
                     d={curve(from.x + WIDTH, from.y + ANCHOR, to.x - 4, to.y + ANCHOR)}
                     fill="none"
-                    stroke={active ? "var(--primary)" : "var(--muted-foreground)"}
+                    stroke={active ? "var(--brand)" : "var(--muted-foreground)"}
                     strokeOpacity={active ? 1 : 0.55}
                     strokeWidth={active ? 2 : 1.5}
                     markerEnd="url(#flow-arrow)"
@@ -429,7 +429,7 @@ export function FlowPage() {
                 <path
                   d={curve((byId(link.from)?.x ?? 0) + WIDTH, (byId(link.from)?.y ?? 0) + ANCHOR, link.x, link.y)}
                   fill="none"
-                  stroke="var(--primary)"
+                  stroke="var(--brand)"
                   strokeWidth={2}
                   strokeDasharray="5 5"
                 />
@@ -469,7 +469,7 @@ export function FlowPage() {
                   onFocus={() => setSelectedId(step.id)}
                   className={cn(
                     "pointer-events-auto absolute flex cursor-move touch-none flex-col gap-1.5 rounded-2xl border bg-card p-3 text-sm shadow-sm outline-none select-none",
-                    isSelected ? "border-primary ring-3 ring-ring/50" : "hover:border-foreground/30"
+                    isSelected ? "border-brand ring-3 ring-brand/25" : "hover:border-foreground/30"
                   )}
                   style={{ left: step.x, top: step.y, width: WIDTH }}
                 >
@@ -487,7 +487,7 @@ export function FlowPage() {
                     onPointerDown={(event) => onHandlePointerDown(event, step)}
                     onPointerMove={(event) => link && setLink({ ...link, ...point(event) })}
                     onPointerUp={onHandlePointerUp}
-                    className="absolute -right-2 size-4 cursor-crosshair rounded-full border-2 border-card bg-foreground outline-none hover:bg-chart-3"
+                    className="absolute -right-2 size-4 cursor-crosshair rounded-full border-2 border-card bg-foreground outline-none hover:bg-brand"
                     style={{ top: ANCHOR - 8 }}
                   />
                 </div>

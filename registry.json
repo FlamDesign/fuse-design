@@ -7,14 +7,16 @@
       "name": "theme",
       "type": "registry:theme",
       "title": "Flam theme",
-      "description": "Flam colour tokens for light and dark, Rethink Sans, and base styles. Stock shadcn token names with Flam values.",
+      "description": "Flam's colour tokens for light and dark, the brand colour, Rethink Sans and base styles. Uses shadcn/ui token names.",
       "dependencies": [
         "@fontsource-variable/rethink-sans"
       ],
       "cssVars": {
         "theme": {
           "font-sans": "'Rethink Sans Variable', system-ui, sans-serif",
-          "font-heading": "var(--font-sans)"
+          "font-heading": "var(--font-sans)",
+          "color-brand": "var(--brand)",
+          "color-brand-foreground": "var(--brand-foreground)"
         },
         "light": {
           "background": "oklch(0.988 0.004 84)",
@@ -41,6 +43,8 @@
           "chart-4": "oklch(0.553 0.195 38.402)",
           "chart-5": "oklch(0.47 0.157 37.304)",
           "radius": "0.625rem",
+          "brand": "oklch(0.555 0.163 48.998)",
+          "brand-foreground": "oklch(0.987 0.022 95.277)",
           "sidebar": "oklch(0.943 0.008 84)",
           "sidebar-foreground": "oklch(0.216 0.006 56.043)",
           "sidebar-primary": "oklch(0.216 0.006 56.043)",
@@ -74,6 +78,8 @@
           "chart-3": "oklch(0.646 0.222 41.116)",
           "chart-4": "oklch(0.553 0.195 38.402)",
           "chart-5": "oklch(0.47 0.157 37.304)",
+          "brand": "oklch(0.56 0.16 47.5)",
+          "brand-foreground": "oklch(0.987 0.022 95.277)",
           "sidebar": "oklch(0.2 0.006 56)",
           "sidebar-foreground": "oklch(0.97 0.002 84)",
           "sidebar-primary": "oklch(0.94 0.004 84)",
@@ -103,7 +109,7 @@
             "text-wrap": "balance"
           },
           "::selection": {
-            "background": "color-mix(in oklab, var(--chart-2) 32%, transparent)"
+            "background": "color-mix(in oklab, var(--brand) 28%, transparent)"
           }
         }
       }
@@ -111,7 +117,7 @@
     {
       "name": "tabs",
       "title": "Tabs",
-      "description": "Tabs with a tinted track and a card-coloured active tab that reads in both themes.",
+      "description": "A set of layered sections of content, known as tab panels, that are displayed one at a time. Flam's version has a tinted track and a card-coloured active tab.",
       "dependencies": [
         "radix-ui",
         "class-variance-authority",
@@ -128,7 +134,7 @@
     {
       "name": "card",
       "title": "Card",
-      "description": "Card with a border ring and no shadow.",
+      "description": "Displays a card with header, content, and footer. Flam's version uses a border ring and no shadow.",
       "dependencies": [
         "cn"
       ],
@@ -143,7 +149,7 @@
     {
       "name": "button",
       "title": "Button",
-      "description": "Button with an accessible destructive variant in dark mode.",
+      "description": "Displays a button or a component that looks like a button. Flam's version keeps the destructive variant readable in dark mode.",
       "dependencies": [
         "radix-ui",
         "class-variance-authority",
@@ -160,7 +166,7 @@
     {
       "name": "badge",
       "title": "Badge",
-      "description": "Badge with an accessible destructive variant in dark mode.",
+      "description": "Displays a badge or a component that looks like a badge. Flam's version keeps the destructive variant readable in dark mode.",
       "dependencies": [
         "radix-ui",
         "class-variance-authority",
@@ -177,7 +183,7 @@
     {
       "name": "trace",
       "title": "Trace",
-      "description": "Trace with full-contrast descriptions and pending steps.",
+      "description": "The building block for reasoning, tool calls, sources and more. Flam's version keeps descriptions at full contrast and marks pending steps with a dashed ring.",
       "dependencies": [
         "cn",
         "@hugeicons/react",
@@ -197,7 +203,7 @@
     {
       "name": "slider",
       "title": "Slider",
-      "description": "Slider with a label on every thumb.",
+      "description": "An input where the user selects a value from within a given range. Flam's version labels every thumb.",
       "dependencies": [
         "radix-ui",
         "cn"
@@ -213,7 +219,7 @@
     {
       "name": "combobox",
       "title": "Combobox",
-      "description": "Combobox with a labelled trigger.",
+      "description": "Autocomplete input with a list of suggestions. Flam's version labels the trigger.",
       "dependencies": [
         "@base-ui/react",
         "cn",
@@ -235,7 +241,7 @@
     {
       "name": "calendar",
       "title": "Calendar",
-      "description": "Calendar whose day labels start with the visible day number.",
+      "description": "A calendar component that allows users to select a date or a range of dates. Flam's version starts each day label with the visible day number.",
       "dependencies": [
         "react-day-picker",
         "cn",
@@ -256,7 +262,7 @@
     {
       "name": "command",
       "title": "Command",
-      "description": "Command palette with decorative separators that are valid inside a listbox.",
+      "description": "Command menu for search and quick actions. Flam's version uses decorative separators that are valid inside a listbox.",
       "dependencies": [
         "cmdk",
         "cn",
@@ -278,7 +284,7 @@
     {
       "name": "theme-provider",
       "title": "Theme provider",
-      "description": "Light, dark and system theme provider for Vite apps. Press D to toggle.",
+      "description": "A light, dark and system theme provider for Vite apps.",
       "type": "registry:component",
       "files": [
         {
@@ -290,7 +296,7 @@
     {
       "name": "sonner",
       "title": "Sonner",
-      "description": "Toasts wired to the Flam theme provider, with no next-themes dependency.",
+      "description": "An opinionated toast component for React. Flam's version reads the theme from the Flam theme provider and does not need next-themes.",
       "dependencies": [
         "sonner",
         "@hugeicons/react",
@@ -310,7 +316,7 @@
     {
       "name": "spinner",
       "title": "Spinner",
-      "description": "Spinner typed for Hugeicons.",
+      "description": "An indicator that can be used to show a loading state. Flam's version is typed for Hugeicons.",
       "dependencies": [
         "cn",
         "@hugeicons/react",
@@ -327,7 +333,7 @@
     {
       "name": "use-mobile",
       "title": "useIsMobile",
-      "description": "Mobile breakpoint hook built on useSyncExternalStore.",
+      "description": "A hook that reports whether the viewport is below the mobile breakpoint.",
       "type": "registry:hook",
       "files": [
         {
@@ -339,7 +345,7 @@
     {
       "name": "sidebar",
       "title": "Sidebar",
-      "description": "Sidebar that tolerates blocked cookies.",
+      "description": "A composable, themeable and customizable sidebar component. Flam's version tolerates blocked cookies.",
       "dependencies": [
         "radix-ui",
         "class-variance-authority",
@@ -367,7 +373,7 @@
     {
       "name": "carousel",
       "title": "Carousel",
-      "description": "Carousel, lint-clean.",
+      "description": "A carousel with motion and swipe built using Embla. Same behaviour as stock; lint-clean.",
       "dependencies": [
         "embla-carousel-react",
         "cn",
@@ -388,7 +394,7 @@
     {
       "name": "highlighter",
       "title": "Code highlighter",
-      "description": "Shiki highlighter with comment and keyword colours that meet 4.5:1 on Flam code surfaces.",
+      "description": "A Shiki highlighter for code blocks, with syntax colours that meet 4.5:1 on Flam surfaces.",
       "type": "registry:lib",
       "dependencies": [
         "shiki"
@@ -403,7 +409,7 @@
     {
       "name": "rules",
       "title": "Flam design rules",
-      "description": "Design rules for people and coding agents: tokens, colour use, components, copy.",
+      "description": "Flam-specific design rules for people and coding agents: tokens, the brand colour and components. Complements the shadcn skill.",
       "type": "registry:file",
       "files": [
         {
@@ -422,7 +428,7 @@
       "name": "base",
       "type": "registry:style",
       "title": "Flam base",
-      "description": "Everything a Flam project starts with: the theme, the Flam versions of edited components, and the design rules. Carries the component files itself so they win over the stock copies their dependencies pull in.",
+      "description": "The starting point for a Flam project: the theme, Flam's versions of shadcn/ui components and the design rules.",
       "registryDependencies": [
         "@flam/theme",
         "@flam/rules",

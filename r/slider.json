@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "slider",
   "title": "Slider",
-  "description": "Slider with a label on every thumb.",
+  "description": "An input where the user selects a value from within a given range. Flam's version labels every thumb.",
   "dependencies": [
     "radix-ui",
     "cn"

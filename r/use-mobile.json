@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "use-mobile",
   "title": "useIsMobile",
-  "description": "Mobile breakpoint hook built on useSyncExternalStore.",
+  "description": "A hook that reports whether the viewport is below the mobile breakpoint.",
   "files": [
     {
       "path": "src/hooks/use-mobile.ts",
