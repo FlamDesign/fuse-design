@@ -1,0 +1,519 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "flam",
+  "homepage": "https://github.com/FlamDesign/fuse-design",
+  "items": [
+    {
+      "name": "theme",
+      "type": "registry:theme",
+      "title": "Flam theme",
+      "description": "Flam colour tokens for light and dark, Rethink Sans, and base styles. Stock shadcn token names with Flam values.",
+      "dependencies": [
+        "@fontsource-variable/rethink-sans"
+      ],
+      "cssVars": {
+        "theme": {
+          "font-sans": "'Rethink Sans Variable', system-ui, sans-serif",
+          "font-heading": "var(--font-sans)"
+        },
+        "light": {
+          "background": "oklch(0.988 0.004 84)",
+          "foreground": "oklch(0.216 0.006 56.043)",
+          "card": "oklch(1 0 0)",
+          "card-foreground": "oklch(0.216 0.006 56.043)",
+          "popover": "oklch(1 0 0)",
+          "popover-foreground": "oklch(0.216 0.006 56.043)",
+          "primary": "oklch(0.216 0.006 56.043)",
+          "primary-foreground": "oklch(0.988 0.004 84)",
+          "secondary": "oklch(0.954 0.008 84)",
+          "secondary-foreground": "oklch(0.216 0.006 56.043)",
+          "muted": "oklch(0.954 0.008 84)",
+          "muted-foreground": "oklch(0.5 0.013 58.071)",
+          "accent": "oklch(0.954 0.008 84)",
+          "accent-foreground": "oklch(0.216 0.006 56.043)",
+          "destructive": "oklch(0.505 0.213 27.5)",
+          "border": "oklch(0.915 0.008 80)",
+          "input": "oklch(0.915 0.008 80)",
+          "ring": "oklch(0.709 0.01 56.259)",
+          "chart-1": "oklch(0.837 0.128 66.29)",
+          "chart-2": "oklch(0.705 0.213 47.604)",
+          "chart-3": "oklch(0.646 0.222 41.116)",
+          "chart-4": "oklch(0.553 0.195 38.402)",
+          "chart-5": "oklch(0.47 0.157 37.304)",
+          "radius": "0.625rem",
+          "sidebar": "oklch(0.943 0.008 84)",
+          "sidebar-foreground": "oklch(0.216 0.006 56.043)",
+          "sidebar-primary": "oklch(0.216 0.006 56.043)",
+          "sidebar-primary-foreground": "oklch(0.988 0.004 84)",
+          "sidebar-accent": "oklch(0.905 0.011 80)",
+          "sidebar-accent-foreground": "oklch(0.216 0.006 56.043)",
+          "sidebar-border": "oklch(0.9 0.01 80)",
+          "sidebar-ring": "oklch(0.709 0.01 56.259)"
+        },
+        "dark": {
+          "background": "oklch(0.235 0.006 56)",
+          "foreground": "oklch(0.97 0.002 84)",
+          "card": "oklch(0.265 0.007 56)",
+          "card-foreground": "oklch(0.97 0.002 84)",
+          "popover": "oklch(0.275 0.007 56)",
+          "popover-foreground": "oklch(0.97 0.002 84)",
+          "primary": "oklch(0.94 0.004 84)",
+          "primary-foreground": "oklch(0.216 0.006 56.043)",
+          "secondary": "oklch(0.33 0.008 56)",
+          "secondary-foreground": "oklch(0.97 0.002 84)",
+          "muted": "oklch(0.33 0.008 56)",
+          "muted-foreground": "oklch(0.72 0.012 70)",
+          "accent": "oklch(0.38 0.009 56)",
+          "accent-foreground": "oklch(0.97 0.002 84)",
+          "destructive": "oklch(0.8 0.125 22.2)",
+          "border": "oklch(1 0 0 / 10%)",
+          "input": "oklch(1 0 0 / 14%)",
+          "ring": "oklch(0.553 0.013 58.071)",
+          "chart-1": "oklch(0.837 0.128 66.29)",
+          "chart-2": "oklch(0.705 0.213 47.604)",
+          "chart-3": "oklch(0.646 0.222 41.116)",
+          "chart-4": "oklch(0.553 0.195 38.402)",
+          "chart-5": "oklch(0.47 0.157 37.304)",
+          "sidebar": "oklch(0.2 0.006 56)",
+          "sidebar-foreground": "oklch(0.97 0.002 84)",
+          "sidebar-primary": "oklch(0.94 0.004 84)",
+          "sidebar-primary-foreground": "oklch(0.216 0.006 56.043)",
+          "sidebar-accent": "oklch(0.29 0.008 56)",
+          "sidebar-accent-foreground": "oklch(0.97 0.002 84)",
+          "sidebar-border": "oklch(1 0 0 / 8%)",
+          "sidebar-ring": "oklch(0.553 0.013 58.071)"
+        }
+      },
+      "css": {
+        "@import \"@fontsource-variable/rethink-sans\"": {},
+        "@layer base": {
+          ":root": {
+            "color-scheme": "light",
+            "scrollbar-color": "color-mix(in oklab, var(--foreground) 24%, transparent) transparent"
+          },
+          ".dark": {
+            "color-scheme": "dark"
+          },
+          "body": {
+            "-webkit-font-smoothing": "antialiased",
+            "-moz-osx-font-smoothing": "grayscale",
+            "text-rendering": "optimizeLegibility"
+          },
+          "h1, h2, h3": {
+            "text-wrap": "balance"
+          },
+          "::selection": {
+            "background": "color-mix(in oklab, var(--chart-2) 32%, transparent)"
+          }
+        }
+      }
+    },
+    {
+      "name": "tabs",
+      "title": "Tabs",
+      "description": "Tabs with a tinted track and a card-coloured active tab that reads in both themes.",
+      "dependencies": [
+        "radix-ui",
+        "class-variance-authority",
+        "cn"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/tabs.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "name": "card",
+      "title": "Card",
+      "description": "Card with a border ring and no shadow.",
+      "dependencies": [
+        "cn"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/card.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "name": "button",
+      "title": "Button",
+      "description": "Button with an accessible destructive variant in dark mode.",
+      "dependencies": [
+        "radix-ui",
+        "class-variance-authority",
+        "cn"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/button.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "name": "badge",
+      "title": "Badge",
+      "description": "Badge with an accessible destructive variant in dark mode.",
+      "dependencies": [
+        "radix-ui",
+        "class-variance-authority",
+        "cn"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/badge.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "name": "trace",
+      "title": "Trace",
+      "description": "Trace with full-contrast descriptions and pending steps.",
+      "dependencies": [
+        "cn",
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
+      "registryDependencies": [
+        "collapsible"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/trace.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "name": "slider",
+      "title": "Slider",
+      "description": "Slider with a label on every thumb.",
+      "dependencies": [
+        "radix-ui",
+        "cn"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/slider.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "name": "combobox",
+      "title": "Combobox",
+      "description": "Combobox with a labelled trigger.",
+      "dependencies": [
+        "@base-ui/react",
+        "cn",
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
+      "registryDependencies": [
+        "@flam/button",
+        "input-group"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/combobox.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "name": "calendar",
+      "title": "Calendar",
+      "description": "Calendar whose day labels start with the visible day number.",
+      "dependencies": [
+        "react-day-picker",
+        "cn",
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
+      "registryDependencies": [
+        "@flam/button"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/calendar.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "name": "command",
+      "title": "Command",
+      "description": "Command palette with decorative separators that are valid inside a listbox.",
+      "dependencies": [
+        "cmdk",
+        "cn",
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
+      "registryDependencies": [
+        "dialog",
+        "input-group"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/command.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "name": "theme-provider",
+      "title": "Theme provider",
+      "description": "Light, dark and system theme provider for Vite apps. Press D to toggle.",
+      "type": "registry:component",
+      "files": [
+        {
+          "path": "src/components/theme-provider.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "sonner",
+      "title": "Sonner",
+      "description": "Toasts wired to the Flam theme provider, with no next-themes dependency.",
+      "dependencies": [
+        "sonner",
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
+      "registryDependencies": [
+        "@flam/theme-provider"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/sonner.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "name": "spinner",
+      "title": "Spinner",
+      "description": "Spinner typed for Hugeicons.",
+      "dependencies": [
+        "cn",
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/spinner.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "name": "use-mobile",
+      "title": "useIsMobile",
+      "description": "Mobile breakpoint hook built on useSyncExternalStore.",
+      "type": "registry:hook",
+      "files": [
+        {
+          "path": "src/hooks/use-mobile.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "sidebar",
+      "title": "Sidebar",
+      "description": "Sidebar that tolerates blocked cookies.",
+      "dependencies": [
+        "radix-ui",
+        "class-variance-authority",
+        "cn",
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
+      "registryDependencies": [
+        "@flam/button",
+        "input",
+        "separator",
+        "sheet",
+        "skeleton",
+        "tooltip",
+        "@flam/use-mobile"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/sidebar.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "name": "carousel",
+      "title": "Carousel",
+      "description": "Carousel, lint-clean.",
+      "dependencies": [
+        "embla-carousel-react",
+        "cn",
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
+      "registryDependencies": [
+        "@flam/button"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/carousel.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "type": "registry:ui"
+    },
+    {
+      "name": "highlighter",
+      "title": "Code highlighter",
+      "description": "Shiki highlighter with comment and keyword colours that meet 4.5:1 on Flam code surfaces.",
+      "type": "registry:lib",
+      "dependencies": [
+        "shiki"
+      ],
+      "files": [
+        {
+          "path": "src/lib/highlighter.tsx",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "rules",
+      "title": "Flam design rules",
+      "description": "Design rules for people and coding agents: tokens, colour use, components, copy.",
+      "type": "registry:file",
+      "files": [
+        {
+          "path": "registry/rules/FLAM-DESIGN.md",
+          "type": "registry:file",
+          "target": "~/FLAM-DESIGN.md"
+        },
+        {
+          "path": "registry/rules/cursor/flam-design.mdc",
+          "type": "registry:file",
+          "target": "~/.cursor/rules/flam-design.mdc"
+        }
+      ]
+    },
+    {
+      "name": "base",
+      "type": "registry:style",
+      "title": "Flam base",
+      "description": "Everything a Flam project starts with: the theme, the Flam versions of edited components, and the design rules. Carries the component files itself so they win over the stock copies their dependencies pull in.",
+      "registryDependencies": [
+        "@flam/theme",
+        "@flam/rules",
+        "collapsible",
+        "input-group",
+        "dialog",
+        "input",
+        "separator",
+        "sheet",
+        "skeleton",
+        "tooltip"
+      ],
+      "files": [
+        {
+          "path": "src/components/ui/tabs.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/ui/card.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/ui/button.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/ui/badge.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/ui/trace.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/ui/slider.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/ui/combobox.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/ui/calendar.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/ui/command.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/theme-provider.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "src/components/ui/sonner.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/ui/spinner.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/hooks/use-mobile.ts",
+          "type": "registry:hook"
+        },
+        {
+          "path": "src/components/ui/sidebar.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/ui/carousel.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/lib/highlighter.tsx",
+          "type": "registry:lib"
+        }
+      ],
+      "dependencies": [
+        "@base-ui/react",
+        "@hugeicons/core-free-icons",
+        "@hugeicons/react",
+        "class-variance-authority",
+        "cmdk",
+        "cn",
+        "embla-carousel-react",
+        "radix-ui",
+        "react-day-picker",
+        "shiki",
+        "sonner"
+      ]
+    }
+  ]
+}

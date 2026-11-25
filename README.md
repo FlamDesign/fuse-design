@@ -57,3 +57,68 @@ Every component page ends with an Examples section holding the variations from t
 ## Regenerating upstream examples
 
 `tools/gen_ui.py` and `tools/gen_ai.py` rebuild `src/examples` and the two generated registries from a clone of `shadcn-ui/ui`. Point `SHADCN_UI_V4` at its `apps/v4` folder, run the script with Python 3, then run Prettier on `src/examples`.
+
+## The `@flam` registry
+
+This repo is also a shadcn registry. Other Flam projects install the theme, Flam's versions of edited components and the design rules from it. It is public, so no token is needed.
+
+### Use it in a project
+
+1. Add the namespace to the project's `components.json`:
+
+```json
+{
+  "registries": {
+    "@flam": "https://raw.githubusercontent.com/FlamDesign/fuse-design/main/r/{name}.json"
+  }
+}
+```
+
+2. Install the base:
+
+```bash
+# new project, after `npx shadcn@latest init`
+npx shadcn@latest add @flam/base
+
+# existing project: replace its tokens and the edited components
+npx shadcn@latest add @flam/base --overwrite
+```
+
+3. In an existing project, replace hard-coded colours (hex values, Tailwind palette classes) with tokens. Projects already on stock shadcn token names need no other change.
+
+4. Point coding agents at the rules: add `@FLAM-DESIGN.md` to the project's `CLAUDE.md` or `AGENTS.md`. Cursor picks up `.cursor/rules/flam-design.mdc` on its own.
+
+### Items
+
+| Item | What it installs |
+|---|---|
+| `@flam/base` | Theme, all edited components, rules. Start here. |
+| `@flam/theme` | Colour tokens for light and dark, Rethink Sans, base styles |
+| `@flam/rules` | `FLAM-DESIGN.md` and a Cursor rule |
+| `@flam/tabs`, `card`, `button`, `badge`, `trace`, `slider`, `combobox`, `calendar`, `command`, `sonner`, `spinner`, `sidebar`, `carousel` | Flam's version of that component |
+| `@flam/theme-provider`, `use-mobile`, `highlighter` | Supporting files |
+
+Everything else comes from the stock registry as usual: `npx shadcn@latest add dialog`.
+
+### Keeping Flam's versions
+
+- Do not pass `--overwrite` when adding stock components. Stock components such as `input-group` depend on stock `button`, and `--overwrite` would replace Flam's copy.
+- If that happens, run `npx shadcn@latest add @flam/base --overwrite` again.
+- Theme updates do not reach a project by themselves. Re-run `npx shadcn@latest add @flam/theme` to pull new values.
+
+### Publishing a change or a new component
+
+1. Edit or add the source under `src/`.
+2. Add or update its entry in `registry.json` (`files`, `dependencies`, `registryDependencies`). If the component belongs in the base, add its file to the `base` item too.
+3. Run `npm run registry:build` and commit the regenerated `r/` folder.
+4. Merge to `main`. The registry URL serves from `main`.
+
+A custom component such as the player UI is one more `registry:ui` or `registry:block` item. Use `@flam/...` in `registryDependencies` for Flam's versions and bare names for stock ones.
+
+### Product namespaces
+
+To keep product components separate but reusable, give each product a folder and its own output, for example `registry/flicks/registry.json` built to `r/flicks/`, and register it as `@flam-flicks` with the URL `.../main/r/flicks/{name}.json`. Any project can list several namespaces and install from each. Move a component to `@flam` once a second product needs it.
+
+### Agents
+
+The shadcn MCP server reads the `registries` block in `components.json`, so an agent can search and install `@flam` items directly: `npx shadcn@latest mcp init`.
