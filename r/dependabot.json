@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "dependabot",
+  "title": "Dependabot config",
+  "description": "A Dependabot config that raises a weekly pull request when Flam design packages such as @flam-ai/tokens publish a new version.",
+  "files": [
+    {
+      "path": "registry/dependabot/dependabot.yml",
+      "content": "# Raises a weekly pull request when Flam design packages publish a new version.\nversion: 2\nupdates:\n  - package-ecosystem: npm\n    directory: /\n    schedule:\n      interval: weekly\n    groups:\n      flam-design:\n        patterns:\n          - \"@flam-ai/*\"\n",
+      "type": "registry:file",
+      "target": "~/.github/dependabot.yml"
+    }
+  ],
+  "type": "registry:file"
+}

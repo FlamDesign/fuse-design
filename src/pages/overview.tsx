@@ -9,8 +9,23 @@ import { ComponentList } from "@/pages/docs/components-index"
 const setup = [
   ["Style", "Rhea on Radix UI"],
   ["Icons", "Hugeicons"],
-  ["Typeface", "Golos Text"],
+  ["Typeface", "Rethink Sans"],
   ["Typeset", "16px body for rendered content"],
+]
+
+const routes = [
+  {
+    title: "Product apps",
+    kind: "npm package",
+    command: "npm install @flam-ai/tokens",
+    note: "Import the theme file in the global CSS. New token values arrive as a version bump.",
+  },
+  {
+    title: "Prototypes",
+    kind: "Registry copy",
+    command: "npx shadcn@latest add @flam/theme",
+    note: "Writes the tokens into the project. Re-run the command to pull new values.",
+  },
 ]
 
 const elements = aiRegistry.filter((entry) => entry.group === "elements")
@@ -35,6 +50,27 @@ export function OverviewPage() {
           ))}
         </dl>
       </header>
+
+      <section className="flex flex-col gap-4" aria-label="Use the theme in a project">
+        <div className="flex flex-col gap-1 border-b pb-3">
+          <h2 className="text-lg font-medium tracking-tight">Use the theme in a project</h2>
+          <p className="text-sm text-muted-foreground">
+            Pick one route per project, never both. Two copies of the tokens can disagree.
+          </p>
+        </div>
+        <div className="grid gap-3 sm:grid-cols-2">
+          {routes.map((route) => (
+            <div key={route.title} className="flex flex-col gap-2 rounded-2xl bg-card p-4 ring-1 ring-border">
+              <div className="flex items-baseline justify-between gap-3">
+                <h3 className="font-medium">{route.title}</h3>
+                <span className="text-sm text-muted-foreground">{route.kind}</span>
+              </div>
+              <code className="rounded-lg bg-muted px-2.5 py-1.5 font-mono text-sm break-all">{route.command}</code>
+              <p className="text-sm leading-5 text-muted-foreground">{route.note}</p>
+            </div>
+          ))}
+        </div>
+      </section>
 
       <section className="flex flex-col gap-3">
         <div className="flex items-baseline justify-between gap-4">

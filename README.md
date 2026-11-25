@@ -95,6 +95,7 @@ npx shadcn@latest add @flam/base --overwrite
 | `@flam/base` | Theme, all edited components, rules. Start here. |
 | `@flam/theme` | Colour tokens for light and dark, the brand colour, Rethink Sans, base styles |
 | `@flam/rules` | `FLAM-DESIGN.md` and a Cursor rule |
+| `@flam/dependabot` | `.github/dependabot.yml` that keeps `@flam-ai/*` packages current |
 | `@flam/tabs`, `card`, `button`, `badge`, `trace`, `slider`, `combobox`, `calendar`, `command`, `sonner`, `spinner`, `sidebar`, `carousel` | Flam's version of that component |
 | `@flam/theme-provider`, `use-mobile`, `highlighter` | Supporting files |
 
@@ -145,6 +146,36 @@ For Claude Code this writes `.mcp.json`; commit it so everyone on the repo gets 
 
 - The kit imports it from `src/index.css`.
 - `npm run registry:build` copies it into the `@flam/theme` registry item.
-- It is also an npm package (`packages/tokens`). A project that imports `@flam/tokens/theme.css` picks up new values with a version bump; a project that installed `@flam/theme` through the shadcn CLI has to re-run `npx shadcn@latest add @flam/theme`.
+- It is also an npm package (`packages/tokens`). A project that imports `@flam-ai/tokens/theme.css` picks up new values with a version bump; a project that installed `@flam/theme` through the shadcn CLI has to re-run `npx shadcn@latest add @flam/theme`.
+
+### One route per project
+
+A project takes the theme by exactly one route. With both, it holds two sets of token values that can disagree.
+
+| Project | Route | How |
+|---|---|---|
+| Product apps | npm package | `npm install @flam-ai/tokens`, then `@import "@flam-ai/tokens/theme.css"` in the global CSS. Remove the project's own `:root` and `.dark` token blocks. |
+| Prototypes, one-off projects | Registry copy | `npx shadcn@latest add @flam/theme` |
+
+The same rule is stated in `FLAM-DESIGN.md` for agents, in the package README on npm, and on the overview page of the kit.
+
+### Automatic updates
+
+Projects on the npm package get token changes as a version bump. Dependabot raises that pull request by itself. Install the config with `npx shadcn@latest add @flam/dependabot`, or add this to the project's `.github/dependabot.yml`:
+
+```yaml
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      flam-design:
+        patterns:
+          - "@flam-ai/*"
+```
+
+If the project already has a `dependabot.yml`, add only the `groups` block to its npm entry; the CLI will not overwrite an existing file.
 
 To release new token values: edit `theme.css`, bump the version in `packages/tokens/package.json`, run `npm run registry:build`, merge, then `npm publish` from `packages/tokens`.
